@@ -7,7 +7,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: login.php");
     exit;
 }Else{
-echo "welcome to our page";    
+echo "welcome to our page.<br>";    
+echo "Your username is ". $_SESSION["username"];    
 
 }
 ?>
@@ -26,7 +27,9 @@ echo "welcome to our page";
 
 <body>
     <br>
-<a href="http://localhost:8080/blog/models/logout.php">Log out</a>
+    <a href="http://localhost:8080/blog/models/logout.php">Log out</a><br>
+    <a href="http://localhost:8080/blog/models/resetPassword.php">Reset Password</a>
+
 </body>
 
 </html>

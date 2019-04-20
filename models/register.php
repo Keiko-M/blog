@@ -7,11 +7,11 @@ require_once "../connection.php";
 $username = $password = $confirmPassword = "";
 $usernameErr = $passwordErr = $confirmPasswordErr = "";
 
-//processing form data when form is submitted
+//processing form data when form is submitted / Checks the method = post
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     //validate username
-    if(empty(trim($_POST["username"]))){
+    if(empty(trim($_POST["username"]))){ //trim: Strip whitespace & empty: Determine whether a variable is empty
         $usernameErr = "Pleaes enter a username.";
     }else{
         //prepare a select statement
@@ -19,7 +19,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         
         if($stmt = $pdo->prepare($sql)){
             //bind variables to the prepared statement as parmeters
-            $stmt->bindParam(":username", $paramUsername, PDO::PARAM_STR);
+            $stmt->bindParam(":username", $paramUsername, PDO::PARAM_STR); //DO::PARAM_STR Represents the SQL CHAR, VARCHAR, or other string data type.
+
             
             //set parameters
             $paramUsername = trim($_POST["username"]);
@@ -42,24 +43,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     // Validate password
     if(empty(trim($_POST["password"]))){
-        $password_err = "Please enter a password.";     
+        $passwordErr = "Please enter a password.";     
     } elseif(strlen(trim($_POST["password"])) < 6){
-        $password_err = "Password must have atleast 6 characters.";
+        $passwordErr = "Password must have at least 6 characters.";
     } else{
         $password = trim($_POST["password"]);
     }
     
-//    if(empty(trim($_POST["password"]))){
-//    $passwordErr = "Please enter a password.";
-//    }elseif(strlen(trim($_POST["password"])) < 6 ) {
-//    $passwordErr = "Password must have at least 6 characters.";
-//    }else{
-//    $password = trim($_POST["password"]);
-//}
-
-//validate confirm password
+    //validate confirm password
     if(empty(trim($_POST["confirmPassword"]))){
-        $confirmPasswordError = "Please confirm password.";
+        $confirmPasswordErr = "Please confirm password.";
     }else{
         $confirmPassword = trim($_POST["confirmPassword"]);
         if(empty($passwordErr) && ($password != $confirmPassword)){
@@ -68,7 +61,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }    
     
     //checkput errors before inserting into the database
-    if(empty($usernameErr) && empty($passwordErr) && empty($confirmPasswordError)){
+    if(empty($usernameErr) && empty($passwordErr) && empty($confirmPasswordErr)){
     //    prepare an insert statement
         $sql = "INSERT INTO users (username, password) VALUES (:username, :password)";
 
@@ -78,12 +71,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $stmt->bindParam(":password", $paramPassword, PDO::PARAM_STR);
            //       set the parameters
             $paramUsername = $username;
-            $paramPassword = password_hash($password, PASSWORD_DEFAULT); //       create a password hash
+            $paramPassword = password_hash($password, PASSWORD_DEFAULT); // creates a new password hash using a strong one-way hashing bcrypt algorithm
         
         //attempt to execute
         if($stmt->execute()) {
             //redirect to login page
-              header("location: register.php");
+              header("location: login.php");
             }else{
                 echo "Something went wrong. Please try again later.";
             }
