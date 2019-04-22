@@ -67,7 +67,7 @@ class Post {
             $req->execute();
 
 //upload product image if it exists
-            if (empty($_FILES[self::InputKey]['title'])) {
+            if (!empty($_FILES[self::InputKey]['title'])) {
                 Post::uploadFile($title);
             }
         }
@@ -112,7 +112,7 @@ class Post {
         }
 
         if ($_FILES[self::InputKey]['error'] > 0) {
-            trigger_error("Handle the error! " . $_FILES[InputKey]['error']);
+            trigger_error("Handle the error! " . $_FILES[self::InputKey]['error']);
         }
 
 
@@ -121,7 +121,7 @@ class Post {
         }
 
         $tempFile = $_FILES[self::InputKey]['tmp_name'];
-        $path = "C:/xampp/htdocs/blog/views/images/";
+        $path = "C:/xampp/htdocs/MVC_Skeleton/views/images/";
         $destinationFile = $path . $title . '.jpeg';
 
         if (!move_uploaded_file($tempFile, $destinationFile)) {

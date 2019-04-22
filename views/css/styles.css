@@ -1,10 +1,67 @@
-html, body, h1, h2, h3, h4, h5, h6 {
- font-family: 'Pangolin', cursive;
-}
-.w3-tangerine {
-  font-family: 'Tangerine', serif;
-}
-.w3-pacifico {
-    font-family: 'Pacifico', cursive;
+
+@import url('https://fonts.googleapis.com/css?family=Arvo|Raleway');
+
+body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    background: #F4F1DE;
+    height: 100%;
+    text-align: center;
 }
 
+h1 {
+    font-family:'Arvo', serif;
+    color: #FF521B;
+}
+
+h2 {
+    font-family:'Arvo', serif;
+    color: #3D405B;
+}
+
+#logo { 
+    height: auto;
+    float:left;
+    margin: 5px;
+    display: inline-block;
+}
+
+#title {
+    text-align: center;
+}
+
+.smallNav {
+    font-size: 15px;
+}
+
+#search {
+    float: right;
+    display: inline-block;
+}
+.container {
+    width:100%;
+}
+
+#navbarCollapse {
+    float: left;
+    width: 80%;
+}
+
+#title {
+    padding-top: 0px;
+}
+
+.navbar-default{
+    background: #F4F1DE;
+    border: none;
+}
+
+@media only screen and (min-width: 300px)  {body{ padding-top: 35%;} h1 {font-size:10vw; } h2 {font-size: 8vw;} img{width:40px;} .form-inline {padding-right: 1em; padding-top: .5em;}}
+@media only screen and (min-width: 401px)  {body{ padding-top: 15%; } img {width:50px;}}
+@media only screen and (min-width: 401px)  {body{ padding-top: 13%; } }
+@media only screen and (min-width: 678px) {body {padding-top: 8%} img{width:60px;} h1 {font-size: 48px;} h2 {font-size: 28px;} }
+@media only screen and (min-width: 768px) {body{ padding-top: 18%; } .form-inline {padding-right: 0em; padding-top: 0em;} } 
+@media only screen and (min-width: 900px) {body {padding-top: 15%}}
+@media only screen and (min-width: 991px) {body{ padding-top: 15%;} }
+@media only screen and (min-width: 1124px) {body {padding-top: 8% } img{width:100px;}}
+@media only screen and (min-width: 1300px) {h1 {font-size: 48px;}}
