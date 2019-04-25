@@ -40,6 +40,7 @@ class User{
         $this->password = "";
         $this->loggedin = false;
         unset($_SESSION['user_session']);
+        //if session_destory = true then go to login.php
         if(session_destroy()) {
             header("Location: ../views/pages/login.php");
         }

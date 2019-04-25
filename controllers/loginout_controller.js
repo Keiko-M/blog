@@ -1,6 +1,6 @@
 $(document).ready(function(){
-    /* handling form validation */
-    $("#login-form").validate({
+    /*Form Validation using Ajax */
+    $("#loginForm").validate({
         rules: {
             password: {
                 required: true,
@@ -21,20 +21,27 @@ $(document).ready(function(){
         submitHandler: submitForm	
     })	
         
-    function submitForm() {		
-        var data = $("#login-form").serialize();
-
+    function submitForm() {	
+        //serialize user's input
+        var data = $("#loginForm").serialize();
+        
+        //jQuery ajax() Method more info on https://www.w3schools.com/jquery/ajax_ajax.asp
         $.ajax({				
                 type : 'POST',
-                url  : '../../controllers/login_controller.php?action=login',
+                url  : '../../controllers/loginout_controller.php?action=login',
                 data : data,
+                
+                //before sending clear our the error message
                 beforeSend: function(){	
                         $("#error").fadeOut();
                 },
-                success : function(response){			
+                
+                success : function(response){	
+                        // if post is sucessful, change the button's message and redirect to welcome page after 2seconds 
                         if($.trim(response) === "1"){
-                                $("#login-submit").html('Signing In ...');
+                                $("#loginSubmit").html('Signing In ...');
                                 setTimeout(' window.location.href = "welcome.php"; ',2000);
+                        // if not, fade in the responce in error section after 1 second
                         } else {									
                                 $("#error").fadeIn(1000, function(){						
                                         $("#error").html(response).show();

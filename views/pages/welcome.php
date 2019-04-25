@@ -25,7 +25,7 @@ session_start();
             </div>
 
                 <ul class="submenu" id="logout">
-		<li><a href="../../controllers/login_controller.php?action=logout" class="btn btn-default btn-sm">
+		<li><a href="../../controllers/loginout_controller.php?action=logout" class="btn btn-default btn-sm">
                     Logout
                     </a>
                     </li>
