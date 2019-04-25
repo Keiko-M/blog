@@ -44,6 +44,22 @@ class Post {
         }
     }
 
+    public static function search($keyword) {
+        $list = [];
+        $db = Db::getInstance();
+        if (isset($_POST['search']) && $_POST['search'] != "") {
+            $filteredKeyword = filter_input(INPUT_POST, 'search', FILTER_SANITIZE_SPECIAL_CHARS);
+            $keyword = "%$filteredKeyword%";
+        }
+        $sql = $db->prepare("SELECT * FROM post WHERE postTitle LIKE :keyword OR postContent LIKE :keyword");
+        $sql->execute(array(':keyword' => $keyword));
+        $posts = $sql->fetchAll();
+        foreach ($posts as $post) {
+            $list[] = new Post($post['postID'], $post['postTitle'], $post['postContent'], $post['postDate'], $post['postDescription']);
+        }
+        return $list;
+    }
+
     public static function update($id) {
         $db = Db::getInstance();
         $req = $db->prepare("Update post set postTitle=:title, postContent=:content, postDescription=:description where postID=:id");
@@ -94,7 +110,7 @@ class Post {
         $content = $filteredContent;
         $description = $filteredDescription;
         $req->execute();
-        
+
 //upload product image
         Post::uploadFile($title);
     }
@@ -145,4 +161,5 @@ class Post {
 
 }
 
+//public function unpublish($id)
 ?>

@@ -13,7 +13,8 @@
         <input class="w3-input" type="text" name="description" value="<?= $post->description; ?>" >
         <label>Description</label>
     </p>
-
+        <!--<button><a href="?controller=post&action=unpublish&id=<?php echo $post->id; ?>">Unpublish</a>-->
+    
     <input type="hidden" name="MAX_FILE_SIZE" value="10000000" />
     <?php
     $file = 'views/images/' . $post->title . '.jpeg';

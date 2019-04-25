@@ -3,7 +3,7 @@
 class DB {
     
     private static $instance = NULL;
-
+    
     //Singleton Design Pattern
     public static function getInstance() {
       if (!isset(self::$instance)) {

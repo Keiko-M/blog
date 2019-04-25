@@ -20,8 +20,8 @@
                value="10000000"
                />
 
-        <input type="file" name="myUploader" class="w3-btn w3-pink" required />
+        <input type="file" name="myUploader" required />
         <p>
-            <input class="w3-btn w3-pink" type="submit" value="Add Post">
+            <input type="submit" value="Add Post">
         </p>
 </form>
