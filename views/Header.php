@@ -18,18 +18,18 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="?controller=pages&action=home" class="navbar-brand img-responsive"><img id="logo" src="views/images/standard/logo.png" width="120" alt="">
+                    <a href="/index.php?controller=pages&action=home" class="navbar-brand img-responsive"><img id="logo" src="/blog/views/images/standard/logo.png" width="120" alt="">
                     </a> 
                     <!-- Collection of nav links and other content for toggling -->
                     <div id="navbarCollapse" class="collapse navbar-collapse">
                         <ul class="nav navbar-nav">
-                            <li><a href="?controller=post&action=readAll">All Posts</a></li>
+                            <li><a href="/blog/index.php?controller=post&action=readAll">All Posts</a></li>
                             <li><a href="#">Categories</a></li>
                             <li><a href="#">Authors</a></li>
                             <li><a href="#">Subscribe</a></li>
                             <li><a href="#">Get in Touch</a></li>
                             <li><a href="#">About us</a></li>
-                            <li class="smallNav"><a href="#">Login</a></li>
+                            <li class="smallNav"><a href="views/pages/login.php">Login</a></li>
                             <li class="smallNav"><a href='#'>Register</a></li>
                         </ul>
                     </div>  

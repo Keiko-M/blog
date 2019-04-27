@@ -9,7 +9,7 @@ body {
     text-align: center;
 }
 
-h1 {
+h1{
     font-family:'Arvo', serif;
     color: #FF521B;
 }
@@ -17,6 +17,11 @@ h1 {
 h2 {
     font-family:'Arvo', serif;
     color: #3D405B;
+}
+
+h3{
+    font-family:'Arvo', serif;
+    color: #FF521B;
 }
 
 #logo { 

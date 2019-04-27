@@ -8,8 +8,11 @@ session_start();
     <script type="text/javascript" charset="utf8" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="../../controllers/loginout_controller.js"></script>
-<body>
+    <script type="text/javascript" src="login.js"></script>
+
+    <header><?php require_once('../Header.php'); ?></header>
+    
+    <body>
 <!--    <H1><?php print_r($_SESSION); ?></H1>-->
     <H1>Please Login</H1>
 
